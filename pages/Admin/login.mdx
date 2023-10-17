@@ -1,20 +1,37 @@
-
-
 # Login
 
-1. First ordered list item
-2. Another item
-⋅⋅* Unordered sub-list. 
-1. Actual numbers don't matter, just that it's a number
-⋅⋅1. Ordered sub-list
-4. And another item.
+- Every user must login to the Signature in order to use the functions in the signature.
 
-⋅⋅⋅You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
+> Enter registered valid user credentials and click "LOGIN"
 
-⋅⋅⋅To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅
-⋅⋅⋅Note that this line is separate, but within the same paragraph.⋅⋅
-⋅⋅⋅(This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
+<img src="../../admin/login.png" />
 
-* Unordered list can use asterisks
-- Or minuses
-+ Or pluses
+> Login Successful - Dashboard Page
+
+<img src="../../admin/dashboard.png" />
+
+> Login Failure Page
+
+<img src="../../admin/login-faliure.png" />
+
+## REST API
+
+<dl>
+  <dd>Name: **Login**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: </dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+  "variables": {
+    "input": {
+      "username": "vellies@yopmail.com",
+      "password": "Admin@123"
+    }
+  },
+  "query": "query ($input: LoginRequest) {\n  login(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+}
+```
+</dl>

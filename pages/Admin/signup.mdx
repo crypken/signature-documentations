@@ -5,7 +5,43 @@
 - Go to Our app link
 - Click ‘Sign up’
   <img src="../../admin/login.png" />
-- Please enter Contact person details and organisation details with strong Password.Then click signup now you got like below image.
+- Please enter Contact person details and organisation details with strong Password. Then click signup now you got like below image.
   <img src="../../admin/signup-verify-email-success.png" />
-- Go to give mailid and open Welcome to Signature: Please verify your email address. Click confirm email button or click given link.
+- Go to given mail id and open Welcome to Signature: Please verify your email address. Click confirm email button or click given link.
   <img src="../../admin/confirm-email-button.png" />
+- Email is verified automatically  redirected to <a href="login">**Login**</a> page.
+
+### REST API
+
+<dl>
+  <dd>Name: **Signup**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: </dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+  "variables": {
+    "input": {
+      "userType": "Organisation",
+      "organisationName": "XYZ",
+      "organisationType": "University",
+      "organisationSector": "Individual",
+      "regType": "Education industry",
+      "regNo": "ER4785",
+      "address": "Chennai",
+      "website": "xyz.com",
+      "firstName": "Vellies",
+      "lastName": "S",
+      "mobile": "+91 74125-89632",
+      "designation": "Head Master",
+      "email": "vellies@yopmail.com",
+      "password": "Admin@123",
+      "confirmPassword": "Admin@123"
+    }
+  },
+  "query": "mutation ($input: SignupRequest) {\n  signup(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+}
+```
+</dl>

@@ -54,12 +54,6 @@ export const DEFAULT_PAGE_OFFSET = 0;
 export const DEFAULT_PAGE_LENGTH = 10;
 export const DEFAULT_COUNTRY_CODE = "my";
 
-//S3
-export const S3_REGION = "ap-southeast-1";
-export const S3_BUCKET = "crypken-bucket";
-export const S3_ACCESS_KEY_ID = "AKIAZJEWMEOSUOLMMNMC";
-export const S3_SECRET_ACCESS_KEY = "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";
-export const S3_BASE_URL = "https://crypken-bucket.s3.ap-southeast-1.amazonaws.com/";
 
 export const SOCIAL_KEYS = {
     download: 'download',

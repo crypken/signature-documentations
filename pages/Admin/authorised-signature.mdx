@@ -1,0 +1,152 @@
+# Authorised Signature
+
+- Go to authorized signature menu showing authorized signature list page. There is default showing 10 rows.
+
+<img src="../../admin/as-list.png" />
+
+- When we need to add authorized signature click Add signature button. Now showing Add authorized signature page.
+
+<img src="../../admin/add-as.png" />
+
+- Enter valid authorized signature details and click submit button.
+
+- Once authorized signature created successfully return to authorized signature list page. This created authorized signature showing in the list.
+
+<img src="../../admin/as-list1.png" />
+
+- Anything actions needed in the authorized signature list use action column edit icon and delete icon.
+- Edit icon use to update the authorized signature details.
+- Delete icon used to delete this authorized signature. This authorized signature disabled. Also disabled this authorized signature course also disabled.
+
+### REST API
+
+<dl>
+  <dd>Name: **Authorised Signature List**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDI2OTY4NmM3MjM2MmY2MzFhZWZiMzEiLCJhdXRoQWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMWMyVnlTV1FpT2lJMk5ESTJPVFk0Tm1NM01qTTJNbVkyTXpGaFpXWmlNekVpTENKbGJXRnBiQ0k2SW5abGJHeHBaWE1yTVRFMFFHTnllWEJyWlc0dVkyOXRJaXdpYVdGMElqb3hOamszTmpJek5qWTRMQ0psZUhBaU9qRTJPVGMzTVRBd05qaDkuV21TTzVNLVQtT1A2cEhMQ2J2dGVzVUxaNmI5dFFTbTdxbVFVVUtFTHpkYyIsIl9pZCI6IjY0MjY5ODRjODQwM2VmYjdlYjdjYjZkYyIsImlzVXNlciI6dHJ1ZSwiaWF0IjoxNjk3NjIzNjY4LCJleHAiOjE2OTc3MTAwNjh9.CRG6dX11JKksEmWXFoM08D4LXmKoyMzodfJodODrWEk</dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+    "variables": {
+        "input": {
+            "paginate": {
+                "offset": 0,
+                "limit": 10,
+                "sort": {
+                    "key": false,
+                    "sortKey": "",
+                    "sortType": true
+                },
+                "search": {
+                    "key": false,
+                    "searchKey": "all",
+                    "searchValue": ""
+                }
+            }
+        }
+    },
+    "query": "query ($input: AuthorizedSignatureListRequest) {\n  getAuthorizedSignatureList(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+} 
+```
+</dl>
+
+<dl>
+  <dd>Name: **Create Authorised Signature**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDI2OTY4NmM3MjM2MmY2MzFhZWZiMzEiLCJhdXRoQWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMWMyVnlTV1FpT2lJMk5ESTJPVFk0Tm1NM01qTTJNbVkyTXpGaFpXWmlNekVpTENKbGJXRnBiQ0k2SW5abGJHeHBaWE1yTVRFMFFHTnllWEJyWlc0dVkyOXRJaXdpYVdGMElqb3hOamszTmpJek5qWTRMQ0psZUhBaU9qRTJPVGMzTVRBd05qaDkuV21TTzVNLVQtT1A2cEhMQ2J2dGVzVUxaNmI5dFFTbTdxbVFVVUtFTHpkYyIsIl9pZCI6IjY0MjY5ODRjODQwM2VmYjdlYjdjYjZkYyIsImlzVXNlciI6dHJ1ZSwiaWF0IjoxNjk3NjIzNjY4LCJleHAiOjE2OTc3MTAwNjh9.CRG6dX11JKksEmWXFoM08D4LXmKoyMzodfJodODrWEk</dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+  "variables":{
+    "input":{
+      "body":{
+        "name":"Vellieswaran",
+        "designation":"Principal",
+        "thumbFiles":[null],
+        "imageAttachment":[null],
+        "imageUrl":"",
+        "status":1
+       }
+    }
+  },
+  "query":"mutation ($input: CreateAuthorizedSignatureRequest) {\n  createAuthorizedSignature(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+} 
+```
+</dl>
+
+<dl>
+  <dd>Name: **Get Authorised Signature ById**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDI2OTY4NmM3MjM2MmY2MzFhZWZiMzEiLCJhdXRoQWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMWMyVnlTV1FpT2lJMk5ESTJPVFk0Tm1NM01qTTJNbVkyTXpGaFpXWmlNekVpTENKbGJXRnBiQ0k2SW5abGJHeHBaWE1yTVRFMFFHTnllWEJyWlc0dVkyOXRJaXdpYVdGMElqb3hOamszTmpJek5qWTRMQ0psZUhBaU9qRTJPVGMzTVRBd05qaDkuV21TTzVNLVQtT1A2cEhMQ2J2dGVzVUxaNmI5dFFTbTdxbVFVVUtFTHpkYyIsIl9pZCI6IjY0MjY5ODRjODQwM2VmYjdlYjdjYjZkYyIsImlzVXNlciI6dHJ1ZSwiaWF0IjoxNjk3NjIzNjY4LCJleHAiOjE2OTc3MTAwNjh9.CRG6dX11JKksEmWXFoM08D4LXmKoyMzodfJodODrWEk</dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+    "variables": {
+        "input": {
+            "body": {
+                "certificateType": "education"
+            }
+        }
+    },
+    "query": "mutation ($input: getCountsRequest) {\n  getCounts(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+} 
+```
+</dl>
+
+<dl>
+  <dd>Name: **Update Authorised Signature**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDI2OTY4NmM3MjM2MmY2MzFhZWZiMzEiLCJhdXRoQWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMWMyVnlTV1FpT2lJMk5ESTJPVFk0Tm1NM01qTTJNbVkyTXpGaFpXWmlNekVpTENKbGJXRnBiQ0k2SW5abGJHeHBaWE1yTVRFMFFHTnllWEJyWlc0dVkyOXRJaXdpYVdGMElqb3hOamszTmpJek5qWTRMQ0psZUhBaU9qRTJPVGMzTVRBd05qaDkuV21TTzVNLVQtT1A2cEhMQ2J2dGVzVUxaNmI5dFFTbTdxbVFVVUtFTHpkYyIsIl9pZCI6IjY0MjY5ODRjODQwM2VmYjdlYjdjYjZkYyIsImlzVXNlciI6dHJ1ZSwiaWF0IjoxNjk3NjIzNjY4LCJleHAiOjE2OTc3MTAwNjh9.CRG6dX11JKksEmWXFoM08D4LXmKoyMzodfJodODrWEk</dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+    "variables": {
+        "input": {
+            "_id": "652fc7c877d44ebded0d3554",
+            "body": {
+                "_id": "652fc7c877d44ebded0d3554",
+                "name": "Vellieswaran",
+                "designation": "Principal",
+                "createdBy": "652fb7953bb12d581a57b480",
+                "signImageUrl": "https://crypken-bucket.s3.ap-southeast-1.amazonaws.com/development/signature/sign/5b890e3d-87dc-4723-adbc-f71814cfeb88",
+                "status": 1,
+                "createdAt": "2023-10-18T11:55:52.909Z",
+                "updatedAt": "2023-10-18T11:55:52.909Z",
+                "__v": 0,
+                "thumbFiles": [],
+                "imageAttachment": [],
+                "imageUrl": "https://crypken-bucket.s3.ap-southeast-1.amazonaws.com/development/signature/sign/5b890e3d-87dc-4723-adbc-f71814cfeb88"
+            }
+        }
+    },
+    "query": "mutation ($input: UpdateAuthorizedSignatureRequest) {\n  updateAuthorizedSignature(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+} 
+```
+</dl>
+
+<dl>
+  <dd>Name: **Delete Authorised Signature**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDI2OTY4NmM3MjM2MmY2MzFhZWZiMzEiLCJhdXRoQWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMWMyVnlTV1FpT2lJMk5ESTJPVFk0Tm1NM01qTTJNbVkyTXpGaFpXWmlNekVpTENKbGJXRnBiQ0k2SW5abGJHeHBaWE1yTVRFMFFHTnllWEJyWlc0dVkyOXRJaXdpYVdGMElqb3hOamszTmpJek5qWTRMQ0psZUhBaU9qRTJPVGMzTVRBd05qaDkuV21TTzVNLVQtT1A2cEhMQ2J2dGVzVUxaNmI5dFFTbTdxbVFVVUtFTHpkYyIsIl9pZCI6IjY0MjY5ODRjODQwM2VmYjdlYjdjYjZkYyIsImlzVXNlciI6dHJ1ZSwiaWF0IjoxNjk3NjIzNjY4LCJleHAiOjE2OTc3MTAwNjh9.CRG6dX11JKksEmWXFoM08D4LXmKoyMzodfJodODrWEk</dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+    "variables": {
+        "input": {
+            "_id": "652fc90a77d44ebded0d35ea"
+        }
+    },
+    "query": "mutation ($input: DeleteAuthorizedSignatureByIdRequest) {\n  deleteAuthorizedSignatureById(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+} 
+```
+</dl>

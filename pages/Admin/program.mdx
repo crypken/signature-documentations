@@ -1,0 +1,148 @@
+# Program
+
+-	Go to program menu showing program list page. There is default showing 10 rows. 
+
+<img src="../../admin/program-list.png" />
+
+-	When we need to add program click Add program button. Now showing Add program page.
+
+<img src="../../admin/add-program.png" />
+
+-	Enter valid program details and click submit button.
+
+-	Once program created successfully return to program page. This created program showing in the list.
+
+<img src="../../admin/program-list1.png" />
+
+-	Anything actions needed in the program list use action column edit icon and delete icon.
+-	Edit icon use to update the program details.
+-	Delete icon used to delete this program. This program disabled. Also disabled this program course also disabled. 
+
+### REST API
+
+<dl>
+  <dd>Name: **Program List**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDI2OTY4NmM3MjM2MmY2MzFhZWZiMzEiLCJhdXRoQWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMWMyVnlTV1FpT2lJMk5ESTJPVFk0Tm1NM01qTTJNbVkyTXpGaFpXWmlNekVpTENKbGJXRnBiQ0k2SW5abGJHeHBaWE1yTVRFMFFHTnllWEJyWlc0dVkyOXRJaXdpYVdGMElqb3hOamszTmpJek5qWTRMQ0psZUhBaU9qRTJPVGMzTVRBd05qaDkuV21TTzVNLVQtT1A2cEhMQ2J2dGVzVUxaNmI5dFFTbTdxbVFVVUtFTHpkYyIsIl9pZCI6IjY0MjY5ODRjODQwM2VmYjdlYjdjYjZkYyIsImlzVXNlciI6dHJ1ZSwiaWF0IjoxNjk3NjIzNjY4LCJleHAiOjE2OTc3MTAwNjh9.CRG6dX11JKksEmWXFoM08D4LXmKoyMzodfJodODrWEk</dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+    "variables": {
+        "input": {
+            "paginate": {
+                "offset": 0,
+                "limit": 10,
+                "sort": {
+                    "key": false,
+                    "sortKey": "",
+                    "sortType": true
+                },
+                "search": {
+                    "key": false,
+                    "searchKey": "all",
+                    "searchValue": ""
+                },
+                "institute": "all"
+            }
+        }
+    },
+    "query": "query ($input: ProgramListRequest) {\n  getProgramList(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+}
+```
+</dl>
+
+<dl>
+  <dd>Name: **Create Program**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDI2OTY4NmM3MjM2MmY2MzFhZWZiMzEiLCJhdXRoQWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMWMyVnlTV1FpT2lJMk5ESTJPVFk0Tm1NM01qTTJNbVkyTXpGaFpXWmlNekVpTENKbGJXRnBiQ0k2SW5abGJHeHBaWE1yTVRFMFFHTnllWEJyWlc0dVkyOXRJaXdpYVdGMElqb3hOamszTmpJek5qWTRMQ0psZUhBaU9qRTJPVGMzTVRBd05qaDkuV21TTzVNLVQtT1A2cEhMQ2J2dGVzVUxaNmI5dFFTbTdxbVFVVUtFTHpkYyIsIl9pZCI6IjY0MjY5ODRjODQwM2VmYjdlYjdjYjZkYyIsImlzVXNlciI6dHJ1ZSwiaWF0IjoxNjk3NjIzNjY4LCJleHAiOjE2OTc3MTAwNjh9.CRG6dX11JKksEmWXFoM08D4LXmKoyMzodfJodODrWEk</dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+    "variables": {
+        "input": {
+            "body": {
+                "instituteId": "652fbc52be58f3ae55b5a89d",
+                "programName": "Digital Information",
+                "programCode": "001",
+                "duration": "One Month",
+                "status": 1
+            }
+        }
+    },
+    "query": "mutation ($input: CreateProgramRequest) {\n  createProgram(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+}
+```
+</dl>
+
+<dl>
+  <dd>Name: **Get Program ById**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDI2OTY4NmM3MjM2MmY2MzFhZWZiMzEiLCJhdXRoQWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMWMyVnlTV1FpT2lJMk5ESTJPVFk0Tm1NM01qTTJNbVkyTXpGaFpXWmlNekVpTENKbGJXRnBiQ0k2SW5abGJHeHBaWE1yTVRFMFFHTnllWEJyWlc0dVkyOXRJaXdpYVdGMElqb3hOamszTmpJek5qWTRMQ0psZUhBaU9qRTJPVGMzTVRBd05qaDkuV21TTzVNLVQtT1A2cEhMQ2J2dGVzVUxaNmI5dFFTbTdxbVFVVUtFTHpkYyIsIl9pZCI6IjY0MjY5ODRjODQwM2VmYjdlYjdjYjZkYyIsImlzVXNlciI6dHJ1ZSwiaWF0IjoxNjk3NjIzNjY4LCJleHAiOjE2OTc3MTAwNjh9.CRG6dX11JKksEmWXFoM08D4LXmKoyMzodfJodODrWEk</dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+    "variables": {
+        "input": {
+            "_id": "652fc49777d44ebded0d34c4"
+        }
+    },
+    "query": "query ($input: GetProgramByIdRequest) {\n  getProgramById(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+}
+```
+</dl>
+
+<dl>
+  <dd>Name: **Update Program**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDI2OTY4NmM3MjM2MmY2MzFhZWZiMzEiLCJhdXRoQWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMWMyVnlTV1FpT2lJMk5ESTJPVFk0Tm1NM01qTTJNbVkyTXpGaFpXWmlNekVpTENKbGJXRnBiQ0k2SW5abGJHeHBaWE1yTVRFMFFHTnllWEJyWlc0dVkyOXRJaXdpYVdGMElqb3hOamszTmpJek5qWTRMQ0psZUhBaU9qRTJPVGMzTVRBd05qaDkuV21TTzVNLVQtT1A2cEhMQ2J2dGVzVUxaNmI5dFFTbTdxbVFVVUtFTHpkYyIsIl9pZCI6IjY0MjY5ODRjODQwM2VmYjdlYjdjYjZkYyIsImlzVXNlciI6dHJ1ZSwiaWF0IjoxNjk3NjIzNjY4LCJleHAiOjE2OTc3MTAwNjh9.CRG6dX11JKksEmWXFoM08D4LXmKoyMzodfJodODrWEk</dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+    "variables": {
+        "input": {
+            "_id": "652fc49777d44ebded0d34c4",
+            "body": {
+                "_id": "652fc49777d44ebded0d34c4",
+                "instituteId": "652fbc52be58f3ae55b5a89d",
+                "programName": "Digital Information",
+                "programCode": "001",
+                "duration": "One Month",
+                "createdBy": "652fb7953bb12d581a57b480",
+                "status": 1,
+                "createdAt": "2023-10-18T11:42:16.452Z",
+                "updatedAt": "2023-10-18T11:42:16.452Z",
+                "__v": 0
+            }
+        }
+    },
+    "query": "mutation ($input: UpdateProgramRequest) {\n  updateProgram(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+}
+```
+</dl>
+
+<dl>
+  <dd>Name: **Delete Program**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDI2OTY4NmM3MjM2MmY2MzFhZWZiMzEiLCJhdXRoQWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMWMyVnlTV1FpT2lJMk5ESTJPVFk0Tm1NM01qTTJNbVkyTXpGaFpXWmlNekVpTENKbGJXRnBiQ0k2SW5abGJHeHBaWE1yTVRFMFFHTnllWEJyWlc0dVkyOXRJaXdpYVdGMElqb3hOamszTmpJek5qWTRMQ0psZUhBaU9qRTJPVGMzTVRBd05qaDkuV21TTzVNLVQtT1A2cEhMQ2J2dGVzVUxaNmI5dFFTbTdxbVFVVUtFTHpkYyIsIl9pZCI6IjY0MjY5ODRjODQwM2VmYjdlYjdjYjZkYyIsImlzVXNlciI6dHJ1ZSwiaWF0IjoxNjk3NjIzNjY4LCJleHAiOjE2OTc3MTAwNjh9.CRG6dX11JKksEmWXFoM08D4LXmKoyMzodfJodODrWEk</dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+    "variables": {
+        "input": {
+            "_id": "640adae8792e7f9a9148ac91"
+        }
+    },
+    "query": "mutation ($input: DeleteProgramByIdRequest) {\n  deleteProgramById(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+}
+```
+</dl>

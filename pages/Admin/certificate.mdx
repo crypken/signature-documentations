@@ -1,0 +1,402 @@
+# Certificate
+
+- Go to certificate menu showing certificate list page. There is default showing 10 rows.
+
+<img src="../../admin/certificate-list.png" />
+
+- When we need to add certificate click Add certificate button. Now showing Add certificate page.
+
+- In the certificate page we need to add students for who want blockchain powered digital certificate.
+
+- This students list adds to two way. The ways are, I.Individual, II.Bulk
+
+### Individual
+
+- Here have student basic details.
+
+- We add multiple students (MAX:1000).
+
+- The student details added lists are showing same page. There is anything need to particular student data we use update button.
+
+- Once lists are ready click submit button.
+
+### Bulk
+
+- Click Bulk radio button.
+
+- Follow the steps shown here.
+
+- Once lists are ready click submit button.
+
+<img src="../../admin/certificate-individual1.png" />
+
+- Enter valid certificate student details and click submit button.
+- Once students are created successfully return to certificate page. This created students showing in the list.
+
+<img src="../../admin/certificate-list1.png" />
+
+- Anything actions needed in the student list use action column edit icon and delete icon.
+
+- Edit icon use to update the certificate student details.
+
+- Delete icon used to delete this student.
+
+- Once student lists are ready select current list dropdown new value.
+
+- Select student list left side checkbox or check all checkbox.
+
+<img src="../../admin/certificate-selected.png" />
+
+- Once students selected click submit for blockchain certification button.
+
+- Students data submitted blockchain can’t edit or delete.
+
+- This selected max students are 100.
+
+- This student list send their organisation mail.
+
+- This student Count added in notification page.
+
+<img src="../../admin/notification.png" />
+
+- Few min back or within one day we submitted data are minted in block chain.
+
+- The certificate minted blockchain view eye icon enabled.
+
+<img src="../../admin/certificate-eye.png" />
+
+- The view icon enabled click. Now showing certificate page.
+
+- This certificate has student certificate, student all details and blockchain minted details.
+
+- This certificate page have download option, view credentials and social share.
+
+<img src="../../admin/credentials-validation.png" />
+<img src="../../admin/certificate-page.png" />
+
+### REST API
+
+<dl>
+  <dd>Name: **Student List**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDI2OTY4NmM3MjM2MmY2MzFhZWZiMzEiLCJhdXRoQWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMWMyVnlTV1FpT2lJMk5ESTJPVFk0Tm1NM01qTTJNbVkyTXpGaFpXWmlNekVpTENKbGJXRnBiQ0k2SW5abGJHeHBaWE1yTVRFMFFHTnllWEJyWlc0dVkyOXRJaXdpYVdGMElqb3hOamszTmpJek5qWTRMQ0psZUhBaU9qRTJPVGMzTVRBd05qaDkuV21TTzVNLVQtT1A2cEhMQ2J2dGVzVUxaNmI5dFFTbTdxbVFVVUtFTHpkYyIsIl9pZCI6IjY0MjY5ODRjODQwM2VmYjdlYjdjYjZkYyIsImlzVXNlciI6dHJ1ZSwiaWF0IjoxNjk3NjIzNjY4LCJleHAiOjE2OTc3MTAwNjh9.CRG6dX11JKksEmWXFoM08D4LXmKoyMzodfJodODrWEk</dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+    "variables": {
+        "input": {
+            "paginate": {
+                "offset": 0,
+                "limit": 10,
+                "sort": {
+                    "key": false,
+                    "sortKey": "",
+                    "sortType": true
+                },
+                "search": {
+                    "key": false,
+                    "searchKey": "all",
+                    "searchValue": ""
+                },
+                "certificateType": "education",
+                "listStatus": 0
+            }
+        }
+    },
+    "query": "query ($input: CertificateListMintBasedRequest) {\n  getCertificateListMintBased(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+} 
+```
+</dl>
+
+<dl>
+  <dd>Name: **Create Student**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDI2OTY4NmM3MjM2MmY2MzFhZWZiMzEiLCJhdXRoQWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMWMyVnlTV1FpT2lJMk5ESTJPVFk0Tm1NM01qTTJNbVkyTXpGaFpXWmlNekVpTENKbGJXRnBiQ0k2SW5abGJHeHBaWE1yTVRFMFFHTnllWEJyWlc0dVkyOXRJaXdpYVdGMElqb3hOamszTmpJek5qWTRMQ0psZUhBaU9qRTJPVGMzTVRBd05qaDkuV21TTzVNLVQtT1A2cEhMQ2J2dGVzVUxaNmI5dFFTbTdxbVFVVUtFTHpkYyIsIl9pZCI6IjY0MjY5ODRjODQwM2VmYjdlYjdjYjZkYyIsImlzVXNlciI6dHJ1ZSwiaWF0IjoxNjk3NjIzNjY4LCJleHAiOjE2OTc3MTAwNjh9.CRG6dX11JKksEmWXFoM08D4LXmKoyMzodfJodODrWEk</dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+    "variables": {
+        "input": {
+            "body": {
+                "firstName": "",
+                "lastName": "",
+                "email": "",
+                "mobile": "",
+                "enrollmentNo": "",
+                "skillTags": [
+                    "Reactjs"
+                ],
+                "selectBadgeType": "all",
+                "type": "add",
+                "courseId": "652fce9277d44ebded0d3717",
+                "certificateType": "education",
+                "certificatesList": [
+                    {
+                        "firstName": "mani",
+                        "lastName": "S",
+                        "email": "nand@yopmail.com",
+                        "mobile": "+60 88-8888-8888",
+                        "enrollmentNo": "G7456",
+                        "skillTags": [
+                            "Reactjs"
+                        ],
+                        "badge": true,
+                        "otherDetails": {
+                            "enrollmentNo": "G7456"
+                        },
+                        "type": "add"
+                    }
+                ]
+            }
+        }
+    },
+    "query": "mutation ($input: CreateCertificateRequest) {\n  createCertificate(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+}
+```
+</dl>
+
+<dl>
+  <dd>Name: **Get Student ById**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDI2OTY4NmM3MjM2MmY2MzFhZWZiMzEiLCJhdXRoQWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMWMyVnlTV1FpT2lJMk5ESTJPVFk0Tm1NM01qTTJNbVkyTXpGaFpXWmlNekVpTENKbGJXRnBiQ0k2SW5abGJHeHBaWE1yTVRFMFFHTnllWEJyWlc0dVkyOXRJaXdpYVdGMElqb3hOamszTmpJek5qWTRMQ0psZUhBaU9qRTJPVGMzTVRBd05qaDkuV21TTzVNLVQtT1A2cEhMQ2J2dGVzVUxaNmI5dFFTbTdxbVFVVUtFTHpkYyIsIl9pZCI6IjY0MjY5ODRjODQwM2VmYjdlYjdjYjZkYyIsImlzVXNlciI6dHJ1ZSwiaWF0IjoxNjk3NjIzNjY4LCJleHAiOjE2OTc3MTAwNjh9.CRG6dX11JKksEmWXFoM08D4LXmKoyMzodfJodODrWEk</dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+    "variables": {
+        "input": {
+            "_id": "652fde6b77d44ebded0d3d46"
+        }
+    },
+    "query": "query ($input: GetCertificateByIdRequest) {\n  getCertificateById(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+}
+```
+</dl>
+
+<dl>
+  <dd>Name: **Update Student**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDI2OTY4NmM3MjM2MmY2MzFhZWZiMzEiLCJhdXRoQWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMWMyVnlTV1FpT2lJMk5ESTJPVFk0Tm1NM01qTTJNbVkyTXpGaFpXWmlNekVpTENKbGJXRnBiQ0k2SW5abGJHeHBaWE1yTVRFMFFHTnllWEJyWlc0dVkyOXRJaXdpYVdGMElqb3hOamszTmpJek5qWTRMQ0psZUhBaU9qRTJPVGMzTVRBd05qaDkuV21TTzVNLVQtT1A2cEhMQ2J2dGVzVUxaNmI5dFFTbTdxbVFVVUtFTHpkYyIsIl9pZCI6IjY0MjY5ODRjODQwM2VmYjdlYjdjYjZkYyIsImlzVXNlciI6dHJ1ZSwiaWF0IjoxNjk3NjIzNjY4LCJleHAiOjE2OTc3MTAwNjh9.CRG6dX11JKksEmWXFoM08D4LXmKoyMzodfJodODrWEk</dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+    "variables": {
+        "input": {
+            "_id": "652fde6b77d44ebded0d3d46",
+            "body": {
+                "_id": "652fde6b77d44ebded0d3d46",
+                "firstName": "mani",
+                "lastName": "S",
+                "email": "nand@yopmail.com",
+                "badge": true,
+                "mobile": "+60 88-8888-8888",
+                "createdBy": "652fb7953bb12d581a57b480",
+                "certificateType": "education",
+                "otherDetails": {
+                    "enrollmentNo": "G7456",
+                    "courseId": "652fce9277d44ebded0d3717",
+                    "courseName": "Electrical Engg",
+                    "courseCode": "DR145",
+                    "programId": "652fc49777d44ebded0d34c4",
+                    "programName": "Digital Information",
+                    "instituteId": "652fbc52be58f3ae55b5a89d",
+                    "instituteName": "AV Institute"
+                },
+                "skillTags": [
+                    "Reactjs"
+                ],
+                "download": 0,
+                "view": 0,
+                "status": 1,
+                "mint": 1,
+                "certificateImageCreated": 0,
+                "__v": 0,
+                "createdAt": "2023-10-18T13:32:27.103Z",
+                "updatedAt": "2023-10-18T13:32:27.103Z",
+                "courseId": "652fce9277d44ebded0d3717",
+                "enrollmentNo": "G7456",
+                "selectBadgeType": "all",
+                "certificatesList": [
+                    {
+                        "_id": "652fde6b77d44ebded0d3d46",
+                        "firstName": "mani",
+                        "lastName": "S",
+                        "email": "nand@yopmail.com",
+                        "badge": true,
+                        "mobile": "+60 88-8888-8888",
+                        "createdBy": "652fb7953bb12d581a57b480",
+                        "certificateType": "education",
+                        "otherDetails": {
+                            "enrollmentNo": "G7456",
+                            "courseId": "652fce9277d44ebded0d3717",
+                            "courseName": "Electrical Engg",
+                            "courseCode": "DR145",
+                            "programId": "652fc49777d44ebded0d34c4",
+                            "programName": "Digital Information",
+                            "instituteId": "652fbc52be58f3ae55b5a89d",
+                            "instituteName": "AV Institute"
+                        },
+                        "skillTags": [
+                            "Reactjs"
+                        ],
+                        "download": 0,
+                        "view": 0,
+                        "status": 1,
+                        "mint": 1,
+                        "certificateImageCreated": 0,
+                        "__v": 0,
+                        "createdAt": "2023-10-18T13:32:27.103Z",
+                        "updatedAt": "2023-10-18T13:32:27.103Z",
+                        "courseId": "652fce9277d44ebded0d3717",
+                        "enrollmentNo": "G7456",
+                        "selectBadgeType": "all"
+                    }
+                ]
+            }
+        }
+    },
+    "query": "mutation ($input: UpdateCertificateRequest) {\n  updateCertificate(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+}
+```
+</dl>
+
+<dl>
+  <dd>Name: **Delete Student**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDI2OTY4NmM3MjM2MmY2MzFhZWZiMzEiLCJhdXRoQWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMWMyVnlTV1FpT2lJMk5ESTJPVFk0Tm1NM01qTTJNbVkyTXpGaFpXWmlNekVpTENKbGJXRnBiQ0k2SW5abGJHeHBaWE1yTVRFMFFHTnllWEJyWlc0dVkyOXRJaXdpYVdGMElqb3hOamszTmpJek5qWTRMQ0psZUhBaU9qRTJPVGMzTVRBd05qaDkuV21TTzVNLVQtT1A2cEhMQ2J2dGVzVUxaNmI5dFFTbTdxbVFVVUtFTHpkYyIsIl9pZCI6IjY0MjY5ODRjODQwM2VmYjdlYjdjYjZkYyIsImlzVXNlciI6dHJ1ZSwiaWF0IjoxNjk3NjIzNjY4LCJleHAiOjE2OTc3MTAwNjh9.CRG6dX11JKksEmWXFoM08D4LXmKoyMzodfJodODrWEk</dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+    "variables": {
+        "input": {
+            "_id": "652fde6b77d44ebded0d3d46"
+        }
+    },
+    "query": "mutation ($input: DeleteCertificateByIdRequest) {\n  deleteCertificateById(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+}
+```
+</dl>
+
+<dl>
+  <dd>Name: **Students Submit to Blockchain**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDI2OTY4NmM3MjM2MmY2MzFhZWZiMzEiLCJhdXRoQWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMWMyVnlTV1FpT2lJMk5ESTJPVFk0Tm1NM01qTTJNbVkyTXpGaFpXWmlNekVpTENKbGJXRnBiQ0k2SW5abGJHeHBaWE1yTVRFMFFHTnllWEJyWlc0dVkyOXRJaXdpYVdGMElqb3hOamszTmpJek5qWTRMQ0psZUhBaU9qRTJPVGMzTVRBd05qaDkuV21TTzVNLVQtT1A2cEhMQ2J2dGVzVUxaNmI5dFFTbTdxbVFVVUtFTHpkYyIsIl9pZCI6IjY0MjY5ODRjODQwM2VmYjdlYjdjYjZkYyIsImlzVXNlciI6dHJ1ZSwiaWF0IjoxNjk3NjIzNjY4LCJleHAiOjE2OTc3MTAwNjh9.CRG6dX11JKksEmWXFoM08D4LXmKoyMzodfJodODrWEk</dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+    "variables": {
+        "input": {
+            "body": {
+                "checkedCertificateList": [
+                    {
+                        "_id": "64f986f1bee3667e83fbd23f",
+                        "firstName": "Annabela",
+                        "lastName": "Alice",
+                        "email": "4278395088@yopmail.com",
+                        "badge": true,
+                        "mobile": "+686 7452004751",
+                        "createdBy": "640ada6258d90dfef2c435c0",
+                        "certificateType": "education",
+                        "otherDetails": {
+                            "enrollmentNo": "c3ae4530-9502-41e7-afb0-6ab0abca49d3",
+                            "courseId": "64c1fe672cb80f0869b38d40",
+                            "courseName": "Electrical Engg",
+                            "courseCode": "005",
+                            "programId": "64339aacc6cd327301b6b601",
+                            "programName": "Bachelor Of Eng",
+                            "instituteId": "643392cb52e7dfa13b78e09a",
+                            "instituteName": "Tamil Nadu Agricultural University"
+                        },
+                        "skillTags": [
+                            "Frontend Engineering"
+                        ],
+                        "download": 0,
+                        "view": 0,
+                        "status": 1,
+                        "mint": 1,
+                        "certificateImageCreated": 0,
+                        "__v": 0,
+                        "createdAt": "2023-09-07T08:16:50.441Z",
+                        "updatedAt": "2023-09-07T08:16:50.441Z",
+                        "course": {
+                            "_id": "64c1fe672cb80f0869b38d40",
+                            "programId": "64339aacc6cd327301b6b601",
+                            "instituteId": "643392cb52e7dfa13b78e09a",
+                            "badgeId": "6455d8efcf2ee4bd86d9e12f",
+                            "courseName": "Electrical Engg",
+                            "courseCode": "005",
+                            "startDate": "2023-07-27T00:00:00.000Z",
+                            "endDate": "2023-08-27T00:00:00.000Z",
+                            "numberOfDays": 1,
+                            "certificateType": "Periodic Certificate",
+                            "certificateValidFrom": "2023-08-22T18:30:00.000Z",
+                            "certificateValidTo": "2023-10-31T18:30:00.000Z",
+                            "description": "<p>Test</p>",
+                            "gradeType": "CGPA",
+                            "gradeTypeValue": "10",
+                            "authorizedSignatories": [
+                                {
+                                    "name": "Arul",
+                                    "designation": "CTO",
+                                    "authorizedId": "640adb2a792e7f9a9148acaf",
+                                    "thumbFiles": [],
+                                    "signAttachment": [],
+                                    "signImageUrl": "https://crypken-bucket.s3.ap-southeast-1.amazonaws.com/staging/signature/sign/06c62298-4989-4d34-a38a-e3eba4321821"
+                                }
+                            ],
+                            "createdBy": "640ada6258d90dfef2c435c0",
+                            "status": 1,
+                            "createdAt": "2023-07-27T05:19:35.340Z",
+                            "updatedAt": "2023-07-27T05:49:00.713Z",
+                            "__v": 0
+                        },
+                        "program": {
+                            "_id": "64339aacc6cd327301b6b601",
+                            "instituteId": "643392cb52e7dfa13b78e09a",
+                            "programName": "Bachelor Of Eng",
+                            "programCode": "5432",
+                            "duration": "Three Years",
+                            "createdBy": "640ada6258d90dfef2c435c0",
+                            "status": 1,
+                            "createdAt": "2023-04-10T05:12:12.916Z",
+                            "updatedAt": "2023-05-06T04:38:50.750Z",
+                            "__v": 0
+                        },
+                        "institute": {
+                            "_id": "643392cb52e7dfa13b78e09a",
+                            "instituteName": "Tamil Nadu Agricultural University",
+                            "instituteCode": "TNAU001",
+                            "location": "Coimbatore",
+                            "createdBy": "640ada6258d90dfef2c435c0",
+                            "status": 1,
+                            "createdAt": "2023-04-10T04:38:36.005Z",
+                            "updatedAt": "2023-05-06T04:38:50.761Z",
+                            "__v": 0,
+                            "description": "Remains of ancient buildings exist in the neighborhood of the road on each side (near the modern Castel di Guido) and remains of tombs, inscriptions, etc., were excavated in 1823–1824. Parts of an elite villa have been excavated near Castel di Guido as wel",
+                            "email": "tech@yopmail.com",
+                            "regNo": "DER235"
+                        },
+                        "transaction": [],
+                        "checked": true
+                    }
+                ],
+                "mintStatus": 2,
+                "certificateType": "education"
+            }
+        }
+    },
+    "query": "mutation ($input: SubmitBlockChainMintRequest) {\n  submitBlockChainMint(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+}
+```
+</dl>

@@ -1,0 +1,72 @@
+# Student
+
+- Here we see organizations are created blockchain powered all digital certificates. 
+
+- This is for particular student certificates are listed. 
+
+- Once organization created student certificate send registered link to given student mail id.
+
+- This mail has Student QR Code and register button.
+
+- Click Register button or link.
+
+<img src="../../Student/register.png" />
+
+- Once clicked register button browser open new tab our website.
+
+- Showing student signup page. Here student data’s are showing.
+
+- Enter student valid details click next. Enter strong password click signup.
+
+- Check your mail and verify. Once verify account is activated.
+
+- And redirect to Login page.
+
+- Please enter student valid credentials and click login button.
+
+- Showing student My Certificate page.
+
+<img src="../../Student/mycertificate.png" />
+
+- Click certificate viewing this certificate page.
+
+- This certificate page have download option, view credentials and social share.
+
+<img src="../../Student/credentials-validation.png" />
+
+<img src="../../Student/certificate-page.png" />
+
+### REST API
+
+<dl>
+  <dd>Name: **Program List**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDI2OTY4NmM3MjM2MmY2MzFhZWZiMzEiLCJhdXRoQWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMWMyVnlTV1FpT2lJMk5ESTJPVFk0Tm1NM01qTTJNbVkyTXpGaFpXWmlNekVpTENKbGJXRnBiQ0k2SW5abGJHeHBaWE1yTVRFMFFHTnllWEJyWlc0dVkyOXRJaXdpYVdGMElqb3hOamszTmpJek5qWTRMQ0psZUhBaU9qRTJPVGMzTVRBd05qaDkuV21TTzVNLVQtT1A2cEhMQ2J2dGVzVUxaNmI5dFFTbTdxbVFVVUtFTHpkYyIsIl9pZCI6IjY0MjY5ODRjODQwM2VmYjdlYjdjYjZkYyIsImlzVXNlciI6dHJ1ZSwiaWF0IjoxNjk3NjIzNjY4LCJleHAiOjE2OTc3MTAwNjh9.CRG6dX11JKksEmWXFoM08D4LXmKoyMzodfJodODrWEk</dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+    "variables": {
+        "input": {
+            "paginate": {
+                "offset": 0,
+                "limit": 10,
+                "sort": {
+                    "key": false,
+                    "sortKey": "",
+                    "sortType": true
+                },
+                "search": {
+                    "key": false,
+                    "searchKey": "all",
+                    "searchValue": ""
+                },
+                "certificateType": "education"
+            }
+        }
+    },
+    "query": "query ($input: MyCertificateListRequest) {\n  getMyCertificateList(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+}
+```
+</dl>

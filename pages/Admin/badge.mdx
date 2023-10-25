@@ -1,0 +1,149 @@
+# Badge
+
+- Go to badge menu showing badge list page. There is default showing 10 rows. 
+
+<img src="../../admin/badge-list.png" />
+
+-	When we need to add badge click Add badge button. Now showing Add badge page. 
+
+<img src="../../admin/add-badge.png" />
+
+-	Enter valid badge details and click submit button.
+
+-	Once badge created successfully return to badge page. This created badge showing in the list.
+
+<img src="../../admin/badge-list1.png" />
+
+-	Anything actions needed in the badge list use action column edit icon and delete icon.
+-	Edit icon use to update the badge details.
+-	Delete icon used to delete this badge. 
+
+### REST API
+
+<dl>
+  <dd>Name: **Badge List**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDI2OTY4NmM3MjM2MmY2MzFhZWZiMzEiLCJhdXRoQWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMWMyVnlTV1FpT2lJMk5ESTJPVFk0Tm1NM01qTTJNbVkyTXpGaFpXWmlNekVpTENKbGJXRnBiQ0k2SW5abGJHeHBaWE1yTVRFMFFHTnllWEJyWlc0dVkyOXRJaXdpYVdGMElqb3hOamszTmpJek5qWTRMQ0psZUhBaU9qRTJPVGMzTVRBd05qaDkuV21TTzVNLVQtT1A2cEhMQ2J2dGVzVUxaNmI5dFFTbTdxbVFVVUtFTHpkYyIsIl9pZCI6IjY0MjY5ODRjODQwM2VmYjdlYjdjYjZkYyIsImlzVXNlciI6dHJ1ZSwiaWF0IjoxNjk3NjIzNjY4LCJleHAiOjE2OTc3MTAwNjh9.CRG6dX11JKksEmWXFoM08D4LXmKoyMzodfJodODrWEk</dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+    "variables": {
+        "input": {
+            "paginate": {
+                "offset": 0,
+                "limit": 10,
+                "sort": {
+                    "key": false,
+                    "sortKey": "",
+                    "sortType": true
+                },
+                "search": {
+                    "key": false,
+                    "searchKey": "all",
+                    "searchValue": ""
+                }
+            }
+        }
+    },
+    "query": "query ($input: BadgeListRequest) {\n  getBadgeList(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+} 
+```
+</dl>
+
+<dl>
+  <dd>Name: **Create Badge**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDI2OTY4NmM3MjM2MmY2MzFhZWZiMzEiLCJhdXRoQWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMWMyVnlTV1FpT2lJMk5ESTJPVFk0Tm1NM01qTTJNbVkyTXpGaFpXWmlNekVpTENKbGJXRnBiQ0k2SW5abGJHeHBaWE1yTVRFMFFHTnllWEJyWlc0dVkyOXRJaXdpYVdGMElqb3hOamszTmpJek5qWTRMQ0psZUhBaU9qRTJPVGMzTVRBd05qaDkuV21TTzVNLVQtT1A2cEhMQ2J2dGVzVUxaNmI5dFFTbTdxbVFVVUtFTHpkYyIsIl9pZCI6IjY0MjY5ODRjODQwM2VmYjdlYjdjYjZkYyIsImlzVXNlciI6dHJ1ZSwiaWF0IjoxNjk3NjIzNjY4LCJleHAiOjE2OTc3MTAwNjh9.CRG6dX11JKksEmWXFoM08D4LXmKoyMzodfJodODrWEk</dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+  "variables":{
+    "input":{
+      "body":{
+        "name":"Start",
+        "code":"001",
+        "thumbFiles":[null],
+        "imageAttachment":[null],
+        "imageUrl":"",
+        "status":1}
+      }
+    },
+  "query":"mutation ($input: CreateBadgeRequest) {\n  createBadge(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+} 
+```
+</dl>
+
+<dl>
+  <dd>Name: **Get Badge ById**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDI2OTY4NmM3MjM2MmY2MzFhZWZiMzEiLCJhdXRoQWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMWMyVnlTV1FpT2lJMk5ESTJPVFk0Tm1NM01qTTJNbVkyTXpGaFpXWmlNekVpTENKbGJXRnBiQ0k2SW5abGJHeHBaWE1yTVRFMFFHTnllWEJyWlc0dVkyOXRJaXdpYVdGMElqb3hOamszTmpJek5qWTRMQ0psZUhBaU9qRTJPVGMzTVRBd05qaDkuV21TTzVNLVQtT1A2cEhMQ2J2dGVzVUxaNmI5dFFTbTdxbVFVVUtFTHpkYyIsIl9pZCI6IjY0MjY5ODRjODQwM2VmYjdlYjdjYjZkYyIsImlzVXNlciI6dHJ1ZSwiaWF0IjoxNjk3NjIzNjY4LCJleHAiOjE2OTc3MTAwNjh9.CRG6dX11JKksEmWXFoM08D4LXmKoyMzodfJodODrWEk</dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+    "variables": {
+        "input": {
+            "_id": "652fca8277d44ebded0d3674"
+        }
+    },
+    "query": "query ($input: GetBadgeByIdRequest) {\n  getBadgeById(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+} 
+```
+</dl>
+
+<dl>
+  <dd>Name: **Update Badge**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDI2OTY4NmM3MjM2MmY2MzFhZWZiMzEiLCJhdXRoQWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMWMyVnlTV1FpT2lJMk5ESTJPVFk0Tm1NM01qTTJNbVkyTXpGaFpXWmlNekVpTENKbGJXRnBiQ0k2SW5abGJHeHBaWE1yTVRFMFFHTnllWEJyWlc0dVkyOXRJaXdpYVdGMElqb3hOamszTmpJek5qWTRMQ0psZUhBaU9qRTJPVGMzTVRBd05qaDkuV21TTzVNLVQtT1A2cEhMQ2J2dGVzVUxaNmI5dFFTbTdxbVFVVUtFTHpkYyIsIl9pZCI6IjY0MjY5ODRjODQwM2VmYjdlYjdjYjZkYyIsImlzVXNlciI6dHJ1ZSwiaWF0IjoxNjk3NjIzNjY4LCJleHAiOjE2OTc3MTAwNjh9.CRG6dX11JKksEmWXFoM08D4LXmKoyMzodfJodODrWEk</dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+    "variables": {
+        "input": {
+            "_id": "652fca8277d44ebded0d3674",
+            "body": {
+                "_id": "652fca8277d44ebded0d3674",
+                "name": "Start",
+                "code": "001",
+                "createdBy": "652fb7953bb12d581a57b480",
+                "badgeImageUrl": "https://crypken-bucket.s3.ap-southeast-1.amazonaws.com/development/signature/badge/3eab4198-f7d4-4f2b-968b-c99e538fc642",
+                "status": 1,
+                "createdAt": "2023-10-18T12:07:30.742Z",
+                "updatedAt": "2023-10-18T12:07:30.742Z",
+                "__v": 0,
+                "thumbFiles": [],
+                "imageAttachment": [],
+                "imageUrl": "https://crypken-bucket.s3.ap-southeast-1.amazonaws.com/development/signature/badge/3eab4198-f7d4-4f2b-968b-c99e538fc642"
+            }
+        }
+    },
+    "query": "mutation ($input: UpdateBadgeRequest) {\n  updateBadge(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+} 
+```
+</dl>
+
+<dl>
+  <dd>Name: **Delete Badge**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDI2OTY4NmM3MjM2MmY2MzFhZWZiMzEiLCJhdXRoQWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMWMyVnlTV1FpT2lJMk5ESTJPVFk0Tm1NM01qTTJNbVkyTXpGaFpXWmlNekVpTENKbGJXRnBiQ0k2SW5abGJHeHBaWE1yTVRFMFFHTnllWEJyWlc0dVkyOXRJaXdpYVdGMElqb3hOamszTmpJek5qWTRMQ0psZUhBaU9qRTJPVGMzTVRBd05qaDkuV21TTzVNLVQtT1A2cEhMQ2J2dGVzVUxaNmI5dFFTbTdxbVFVVUtFTHpkYyIsIl9pZCI6IjY0MjY5ODRjODQwM2VmYjdlYjdjYjZkYyIsImlzVXNlciI6dHJ1ZSwiaWF0IjoxNjk3NjIzNjY4LCJleHAiOjE2OTc3MTAwNjh9.CRG6dX11JKksEmWXFoM08D4LXmKoyMzodfJodODrWEk</dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+    "variables": {
+        "input": {
+            "_id": "640adb52792e7f9a9148acbd"
+        }
+    },
+    "query": "mutation ($input: DeleteBadgeByIdRequest) {\n  deleteBadgeById(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+}
+```
+</dl>

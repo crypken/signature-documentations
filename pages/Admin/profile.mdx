@@ -1,0 +1,88 @@
+# Profile
+
+-	User logged in our application in the top navbar have profile icon.
+
+-	Click profile.
+
+-	Now showing profile page.
+
+-	This page have a Basic info and change password.
+
+<img src="../../admin/profile-page.png" />
+
+-	You need anything changes in this page change and click save and update password button.
+
+### REST API
+
+<dl>
+  <dd>Name: **Get Account Profile data**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: </dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+    "variables": {
+        "input": {
+            "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmRlNzMwYjgwMzkxZWFiMDVlMmMyZTYiLCJlbWFpbCI6InZlbGxpZXNAeW9wbWFpbC5jb20iLCJpYXQiOjE2OTc2OTYzMjksImV4cCI6MTY5Nzc4MjcyOX0.X3_5FHyt61PbbdDFIZv1TpN3trt9Z5F90oLr0lxET-M"
+        }
+    },
+    "query": "query ($input: AccountProfileRequest) {\n  getAccountProfile(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+}
+```
+</dl>
+
+<dl>
+  <dd>Name: **Update Profile data**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: </dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+    "variables": {
+        "input": {
+            "_id": "62de730b80391eab05e2c2e6",
+            "userType": "Organisation",
+            "organisationName": "Techno",
+            "organisationType": "University",
+            "regNo": "9632587411",
+            "address": "Test Address",
+            "website": "techno.com",
+            "firstName": "Super",
+            "lastName": "Admin",
+            "mobile": "+91 96325-7412",
+            "designation": "desination",
+            "email": "vellies@yopmail.com",
+            "thumbFiles": [],
+            "imageAttachment": [],
+            "profileImageUrl": ""
+        }
+    },
+    "query": "mutation ($input: UpdateProfileRequest) {\n  updateProfile(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+}
+```
+</dl>
+
+<dl>
+  <dd>Name: **Change Password**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: </dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+    "variables": {
+        "input": {
+            "_id": "62de730b80391eab05e2c2e6",
+            "newPassword": "Admin@123",
+            "oldPassword": "Admin@123"
+        }
+    },
+    "query": "query ($input: SettingsResetPasswordRequest) {\n  settingsResetPassword(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+}
+```
+</dl>

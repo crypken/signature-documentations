@@ -1,0 +1,204 @@
+# Course
+
+- Go to course menu showing course list page. There is default showing 10 rows.
+
+<img src="../../admin/course-list.png" />
+
+-	When we need to add course click Add course button. Now showing Add course page. 
+
+<img src="../../admin/add-course.png" />
+
+-	Enter valid course details and click submit button.
+
+-	Once course created successfully return to course page. This created course showing in the list.
+
+<img src="../../admin/course-list1.png" />
+
+-	Anything actions needed in the Course list use action column edit icon and delete icon.
+-	Edit icon use to update the course details.
+-	Delete icon used to delete this course. 
+
+### REST API
+
+<dl>
+  <dd>Name: **Course List**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDI2OTY4NmM3MjM2MmY2MzFhZWZiMzEiLCJhdXRoQWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMWMyVnlTV1FpT2lJMk5ESTJPVFk0Tm1NM01qTTJNbVkyTXpGaFpXWmlNekVpTENKbGJXRnBiQ0k2SW5abGJHeHBaWE1yTVRFMFFHTnllWEJyWlc0dVkyOXRJaXdpYVdGMElqb3hOamszTmpJek5qWTRMQ0psZUhBaU9qRTJPVGMzTVRBd05qaDkuV21TTzVNLVQtT1A2cEhMQ2J2dGVzVUxaNmI5dFFTbTdxbVFVVUtFTHpkYyIsIl9pZCI6IjY0MjY5ODRjODQwM2VmYjdlYjdjYjZkYyIsImlzVXNlciI6dHJ1ZSwiaWF0IjoxNjk3NjIzNjY4LCJleHAiOjE2OTc3MTAwNjh9.CRG6dX11JKksEmWXFoM08D4LXmKoyMzodfJodODrWEk</dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+    "variables": {
+        "input": {
+            "paginate": {
+                "offset": 0,
+                "limit": 10,
+                "sort": {
+                    "key": false,
+                    "sortKey": "",
+                    "sortType": true
+                },
+                "search": {
+                    "key": false,
+                    "searchKey": "all",
+                    "searchValue": ""
+                },
+                "dateFilter": false,
+                "institute": "all"
+            }
+        }
+    },
+    "query": "query ($input: CourseListRequest) {\n  getCourseList(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+}  
+```
+</dl>
+
+<dl>
+  <dd>Name: **Create Course**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDI2OTY4NmM3MjM2MmY2MzFhZWZiMzEiLCJhdXRoQWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMWMyVnlTV1FpT2lJMk5ESTJPVFk0Tm1NM01qTTJNbVkyTXpGaFpXWmlNekVpTENKbGJXRnBiQ0k2SW5abGJHeHBaWE1yTVRFMFFHTnllWEJyWlc0dVkyOXRJaXdpYVdGMElqb3hOamszTmpJek5qWTRMQ0psZUhBaU9qRTJPVGMzTVRBd05qaDkuV21TTzVNLVQtT1A2cEhMQ2J2dGVzVUxaNmI5dFFTbTdxbVFVVUtFTHpkYyIsIl9pZCI6IjY0MjY5ODRjODQwM2VmYjdlYjdjYjZkYyIsImlzVXNlciI6dHJ1ZSwiaWF0IjoxNjk3NjIzNjY4LCJleHAiOjE2OTc3MTAwNjh9.CRG6dX11JKksEmWXFoM08D4LXmKoyMzodfJodODrWEk</dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+    "variables": {
+        "input": {
+            "body": {
+                "instituteId": "652fbc52be58f3ae55b5a89d",
+                "programId": "652fc49777d44ebded0d34c4",
+                "courseName": "Electrical Engg",
+                "courseCode": "DR145",
+                "badgeId": "652fca8277d44ebded0d3674",
+                "startDate": "2023-10-18",
+                "endDate": "2023-11-18",
+                "certificateType": "Lifetime Certificate",
+                "certificateValidFrom": "10/18/2023",
+                "certificateValidTo": "10/18/2023",
+                "description": "<p>Lorium</p>",
+                "gradeType": "CGPA",
+                "conditions": "",
+                "authorizedSignatories": [
+                    {
+                        "name": "Vellieswaran",
+                        "designation": "Principal",
+                        "authorizedId": "652fc7c877d44ebded0d3554",
+                        "thumbFiles": [],
+                        "signAttachment": [],
+                        "signImageUrl": "https://crypken-bucket.s3.ap-southeast-1.amazonaws.com/development/signature/sign/5b890e3d-87dc-4723-adbc-f71814cfeb88"
+                    }
+                ],
+                "status": 1,
+                "numberOfDays": 1,
+                "gradeTypeValue": "95"
+            }
+        }
+    },
+    "query": "mutation ($input: CreateCourseRequest) {\n  createCourse(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+}
+```
+</dl>
+
+<dl>
+  <dd>Name: **Get Course ById**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDI2OTY4NmM3MjM2MmY2MzFhZWZiMzEiLCJhdXRoQWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMWMyVnlTV1FpT2lJMk5ESTJPVFk0Tm1NM01qTTJNbVkyTXpGaFpXWmlNekVpTENKbGJXRnBiQ0k2SW5abGJHeHBaWE1yTVRFMFFHTnllWEJyWlc0dVkyOXRJaXdpYVdGMElqb3hOamszTmpJek5qWTRMQ0psZUhBaU9qRTJPVGMzTVRBd05qaDkuV21TTzVNLVQtT1A2cEhMQ2J2dGVzVUxaNmI5dFFTbTdxbVFVVUtFTHpkYyIsIl9pZCI6IjY0MjY5ODRjODQwM2VmYjdlYjdjYjZkYyIsImlzVXNlciI6dHJ1ZSwiaWF0IjoxNjk3NjIzNjY4LCJleHAiOjE2OTc3MTAwNjh9.CRG6dX11JKksEmWXFoM08D4LXmKoyMzodfJodODrWEk</dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+    "variables": {
+        "input": {
+            "_id": "652fce9277d44ebded0d3717"
+        }
+    },
+    "query": "query ($input: GetCourseByIdRequest) {\n  getCourseById(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+} 
+```
+</dl>
+
+<dl>
+  <dd>Name: **Update Course**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDI2OTY4NmM3MjM2MmY2MzFhZWZiMzEiLCJhdXRoQWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMWMyVnlTV1FpT2lJMk5ESTJPVFk0Tm1NM01qTTJNbVkyTXpGaFpXWmlNekVpTENKbGJXRnBiQ0k2SW5abGJHeHBaWE1yTVRFMFFHTnllWEJyWlc0dVkyOXRJaXdpYVdGMElqb3hOamszTmpJek5qWTRMQ0psZUhBaU9qRTJPVGMzTVRBd05qaDkuV21TTzVNLVQtT1A2cEhMQ2J2dGVzVUxaNmI5dFFTbTdxbVFVVUtFTHpkYyIsIl9pZCI6IjY0MjY5ODRjODQwM2VmYjdlYjdjYjZkYyIsImlzVXNlciI6dHJ1ZSwiaWF0IjoxNjk3NjIzNjY4LCJleHAiOjE2OTc3MTAwNjh9.CRG6dX11JKksEmWXFoM08D4LXmKoyMzodfJodODrWEk</dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+    "variables": {
+        "input": {
+            "_id": "652fce9277d44ebded0d3717",
+            "body": {
+                "_id": "652fce9277d44ebded0d3717",
+                "programId": "652fc49777d44ebded0d34c4",
+                "instituteId": "652fbc52be58f3ae55b5a89d",
+                "badgeId": "652fca8277d44ebded0d3674",
+                "courseName": "Electrical Engg",
+                "courseCode": "DR145",
+                "startDate": "2023-10-18",
+                "endDate": "2023-11-18",
+                "numberOfDays": 1,
+                "certificateType": "Lifetime Certificate",
+                "certificateValidFrom": "10/18/2023",
+                "certificateValidTo": "10/18/2023",
+                "description": "<p>Lorium</p>",
+                "gradeType": "CGPA",
+                "gradeTypeValue": "95",
+                "authorizedSignatories": [
+                    {
+                        "name": "Vellieswaran",
+                        "designation": "Principal",
+                        "authorizedId": "652fc7c877d44ebded0d3554",
+                        "thumbFiles": [],
+                        "signAttachment": [],
+                        "signImageUrl": "https://crypken-bucket.s3.ap-southeast-1.amazonaws.com/development/signature/sign/5b890e3d-87dc-4723-adbc-f71814cfeb88"
+                    }
+                ],
+                "createdBy": "652fb7953bb12d581a57b480",
+                "status": 1,
+                "createdAt": "2023-10-18T12:24:50.285Z",
+                "updatedAt": "2023-10-18T12:24:50.285Z",
+                "__v": 0,
+                "program": [
+                    {
+                        "_id": "652fc49777d44ebded0d34c4",
+                        "instituteId": "652fbc52be58f3ae55b5a89d",
+                        "programName": "Digital Information",
+                        "programCode": "001",
+                        "duration": "One Month",
+                        "createdBy": "652fb7953bb12d581a57b480",
+                        "status": 1,
+                        "createdAt": "2023-10-18T11:42:16.452Z",
+                        "updatedAt": "2023-10-18T11:44:26.729Z",
+                        "__v": 0
+                    }
+                ]
+            }
+        }
+    },
+    "query": "mutation ($input: UpdateCourseRequest) {\n  updateCourse(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+}
+```
+</dl>
+
+<dl>
+  <dd>Name: **Delete Course**</dd>
+  <dd>Method: **POST**</dd>
+  <dd>Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDI2OTY4NmM3MjM2MmY2MzFhZWZiMzEiLCJhdXRoQWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMWMyVnlTV1FpT2lJMk5ESTJPVFk0Tm1NM01qTTJNbVkyTXpGaFpXWmlNekVpTENKbGJXRnBiQ0k2SW5abGJHeHBaWE1yTVRFMFFHTnllWEJyWlc0dVkyOXRJaXdpYVdGMElqb3hOamszTmpJek5qWTRMQ0psZUhBaU9qRTJPVGMzTVRBd05qaDkuV21TTzVNLVQtT1A2cEhMQ2J2dGVzVUxaNmI5dFFTbTdxbVFVVUtFTHpkYyIsIl9pZCI6IjY0MjY5ODRjODQwM2VmYjdlYjdjYjZkYyIsImlzVXNlciI6dHJ1ZSwiaWF0IjoxNjk3NjIzNjY4LCJleHAiOjE2OTc3MTAwNjh9.CRG6dX11JKksEmWXFoM08D4LXmKoyMzodfJodODrWEk</dd>
+</dl>
+<dl>
+  <dd>Body:</dd>
+  ```javascript {3} copy
+{
+    "variables": {
+        "input": {
+            "_id": "640adee5792e7f9a9148ad1f"
+        }
+    },
+    "query": "mutation ($input: DeleteCourseByIdRequest) {\n  deleteCourseById(input: $input) {\n    responseCode\n    data\n    __typename\n  }\n}"
+}
+```
+</dl>
